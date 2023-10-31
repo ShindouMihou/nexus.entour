@@ -15,7 +15,7 @@ one of them should lead you to their relevant example.
 
 - `components`
 - `hooks`
-  - [`useHideButtons`](src/main/kotlin/pw/mihou/entour/react/hooks/UseHideButtons.kt) is a hook that returns a 
+  - [`useHideButtons`](examples/HideButtonsExample.kt) is a hook that returns a 
   `React.Writable<Boolean>` that will change after a given amount of time, primarily used to hide components and 
   free up opened  resources, such as unused listeners. It resets the timer every time a re-render happens.
   - [`useConfirmationMenu`](examples/ConfirmationMenuExample.kt) is a hook that creates a simple Confirmation Menu. 
