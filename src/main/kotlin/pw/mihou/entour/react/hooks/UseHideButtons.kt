@@ -25,6 +25,7 @@ fun React.useHideButtons(after: Duration = 5.minutes): React.Writable<Boolean> {
         job?.cancel(true)
         job = launch.scheduler.launch(after.inWholeMilliseconds)  {
             hideButtons.set(false)
+            job = null
         }
     }
     return hideButtons
