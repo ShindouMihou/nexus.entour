@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    implementation("pw.mihou:Nexus:3c2cda5d73")
+    implementation("pw.mihou:Nexus:e06c6db093")
     implementation("org.javacord:javacord:3.8.0")
     testImplementation(kotlin("test"))
 }

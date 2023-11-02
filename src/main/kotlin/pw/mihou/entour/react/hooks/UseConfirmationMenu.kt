@@ -25,21 +25,21 @@ fun React.useConfirmationMenu(invoker: User, builder: ConfirmationMenuBuilder.()
         config.message(this)
         config.confirmationButton(this) {
             it.ack(invoker) {
-                state.set(ConfirmationMenuState.CONFIRMED)
+                state set ConfirmationMenuState.CONFIRMED
             }
         }
         config.cancelButton(this) {
             it.ack(invoker) {
-                state.set(ConfirmationMenuState.CANCELLED)
+                state set ConfirmationMenuState.CANCELLED
             }
         }
     }
 
-    onRender {
+    onUpdate {
         job?.cancel(true)
         if (state.get() == ConfirmationMenuState.PENDING && config.timeLimit != null) {
             job = launch.scheduler.launch(config.timeLimit!!.inWholeMilliseconds) {
-                state.set(ConfirmationMenuState.CANCELLED)
+                state set ConfirmationMenuState.CANCELLED
                 job = null
             }
         }

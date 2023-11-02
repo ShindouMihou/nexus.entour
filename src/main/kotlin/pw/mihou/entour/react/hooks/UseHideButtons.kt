@@ -21,10 +21,10 @@ import kotlin.time.Duration.Companion.minutes
 fun React.useHideButtons(after: Duration = 5.minutes): React.Writable<Boolean> {
     val hideButtons = writable(false)
     var job : Cancellable? =  null
-    onRender {
+    onUpdate {
         job?.cancel(true)
         job = launch.scheduler.launch(after.inWholeMilliseconds)  {
-            hideButtons.set(false)
+            hideButtons set false
             job = null
         }
     }
