@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.0"
+    id("maven-publish")
 }
 
 group = "pw.mihou"
