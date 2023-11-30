@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'pw.mihou:Nexus:2ab7bc9794'
+    implementation 'pw.mihou:Nexus:e9ec97ffa4'
     implementation 'org.javacord:javacord:3.8.0'
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
 }
