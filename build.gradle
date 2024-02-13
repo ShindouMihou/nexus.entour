@@ -14,7 +14,7 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.4'
-    implementation 'pw.mihou:reakt.discord:e7ab157eb9'
+    implementation 'pw.mihou:reakt.discord:eb9d8a6bf3'
     implementation 'org.javacord:javacord:3.8.0'
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
 }

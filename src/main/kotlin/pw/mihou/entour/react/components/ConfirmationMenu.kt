@@ -27,7 +27,7 @@ fun Reakt.Document.ConfirmationMenu(invoker: User, state: Reakt.Writable<Confirm
         val config = ConfirmationMenuBuilder()
         builder(config)
 
-        var job by session.writable<Job?>("job", null)
+        var job by session.ref<Job?>("job", null)
         onAfterMount {
             job?.cancel()
             if (state.get() == ConfirmationMenuState.PENDING && config.timeLimit != null) {
