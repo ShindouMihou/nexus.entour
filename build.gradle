@@ -4,7 +4,7 @@ plugins {
 
 group = 'pw.mihou'
 version = '1.0.0'
-description = 'Entour is a set of handy built-in components, hooks and tools that can be used with Nexus.R'
+description = 'Entour is a set of handy built-in components, hooks and tools that can be used with Reakt.Discord'
 
 repositories {
     mavenCentral()
@@ -12,7 +12,9 @@ repositories {
 }
 
 dependencies {
-    implementation 'pw.mihou:Nexus:v1.1.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.4'
+    implementation 'pw.mihou:reakt.discord:f33e736f84'
     implementation 'org.javacord:javacord:3.8.0'
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
 }

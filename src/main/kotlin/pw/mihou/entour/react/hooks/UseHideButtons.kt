@@ -1,13 +1,14 @@
 package pw.mihou.entour.react.hooks
 
-import pw.mihou.entour.react.utils.launch
-import pw.mihou.nexus.configuration.modules.Cancellable
-import pw.mihou.nexus.features.react.React
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import pw.mihou.reakt.Reakt
+import pw.mihou.reakt.utils.coroutine
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.minutes
 
 /**
- * [useHideButtons] is a hook that will give you a little [React.Writable] that will
+ * [useHideButtons] is a hook that will give you a little [Reakt.Writable] that will
  * turn into [true] after the given [after] timestamp. This will extend the time by another 5
  * minutes when re-rendering happens, for example, when a button click causes a re-render then
  * it will reset the clock.
@@ -16,14 +17,15 @@ import kotlin.time.Duration.Companion.minutes
  * a given set of time.
  *
  * @param after the amount of time before hiding the buttons, defaults to 10 minutes.
- * @return a [React.Writable] that will change to [true] after the given time.
+ * @return a [Reakt.Writable] that will change to [true] after the given time.
  */
-fun React.useHideButtons(after: Duration = 5.minutes): React.Writable<Boolean> {
+fun Reakt.useHideButtons(after: Duration = 5.minutes): Reakt.Writable<Boolean> {
     val hideButtons = writable(false)
-    var job : Cancellable? =  null
+    var job : Job? =  null
     onUpdate {
-        job?.cancel(true)
-        job = launch.scheduler.launch(after.inWholeMilliseconds)  {
+        job?.cancel()
+        job = coroutine {
+            delay(after.inWholeMilliseconds)
             hideButtons set false
             job = null
         }
