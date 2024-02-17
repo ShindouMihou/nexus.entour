@@ -33,6 +33,8 @@ fun Reakt.Document.ConfirmationMenu(invoker: User, state: Reakt.Writable<Confirm
             if (state.get() == ConfirmationMenuState.PENDING && config.timeLimit != null) {
                 job = coroutine {
                     delay(config.timeLimit!!.inWholeMilliseconds + 250) // potential lag delay (250ms)
+                    if (state.get() == ConfirmationMenuState.CONFIRMED) return@coroutine
+
                     state set ConfirmationMenuState.CANCELLED
                     job = null
                 }
